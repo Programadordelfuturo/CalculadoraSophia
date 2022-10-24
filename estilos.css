@@ -1,0 +1,135 @@
+:root {
+  --primary-family: 'Pacifico', cursive;
+  --primary-color: aqua;
+  --second-color: yellow;
+  --tercer-color: url(../assets/familia2.jpeg);
+  --four-color: url(../assets/pexels-photo-2832382.jpeg);
+  --five-color: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,*:before,*:after {
+  box-sizing: inherit;
+}
+
+body {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: var(--primary-color);
+}
+
+@media(max-width: 605px){
+
+  body {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 130vh;
+    background-position: center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .inputs-varios {
+    font-size: 22px;
+  }
+}
+
+.inputs-varios {
+  margin-right: 50px;
+  border-radius: 20px;
+  border: 2px groove var(--second-color);
+  background-position: center;
+  background-size: cover;
+  height: 230px;
+  width: 210px;
+}
+
+.inputs-varios p {
+  margin: 20px 30px;
+  font-family: var(--primary-family);
+}
+
+.calculate-body {
+  width: 300px;
+  height: 460px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: -5px 5px 1px 5px gray;
+}
+
+.cara {
+  height: 30%;
+  background-color: #4b5562;
+  padding: 40px 25px;
+}
+
+.resultado {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+  font-size: 40px;
+  height: 80px;
+  width: 250px;
+  background-color: rgb(89, 150, 89);
+  border: 4px solid rgb(79, 228, 79);
+}
+
+.keys{
+  width: 100%;
+  height: 325px;
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+  gap: 11px;
+  padding: 12px 12px;
+  background-color: azure;
+}
+
+.key {
+  background-color: rgb(158, 157, 157);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+  box-shadow: -2px 2px 2px 1px black;
+  transform: scale(1);
+  transition: all 0.1s;
+}
+
+.key:hover{
+  cursor: pointer;
+}
+
+.AC {
+  grid-column: 1/3;
+  background-color: #eb4136;
+}
+
+.OFF {
+  background-color: black;
+  color: white;
+}
+
+.same {
+  grid-column: 3/5;
+  background-color: black;
+  color: white;
+  font-size: 35px;
+}
+
+.operator {
+  background-color: rgb(94, 94, 94);
+}
+
+.pressed {
+  box-shadow: 0 0 0 0 gray;
+  transform: scale(0.97);
+}
