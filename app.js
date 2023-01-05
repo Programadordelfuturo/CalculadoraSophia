@@ -1,10 +1,13 @@
 const keys = document.querySelectorAll(".key");
-const resultado = document.querySelector(".resultado")
-const botonIgual = document.querySelector("#solucion")
+const resultado = document.querySelector(".resultado");
+const botonIgual = document.querySelector("#solucion");
 const exit = document.querySelector("#eliminar");
 const off = document.querySelector(".OFF");
-const checkbox = document.querySelectorAll('[type="checkbox"]');
-const body = document.querySelector("body")
+const body = document.querySelector("body");
+const checkBox = document.querySelectorAll("[type='checkbox']")
+const primerChecked = document.querySelector(".C1");
+const secondChecked = document.querySelector(".C2");
+const tercerChecked = document.querySelector(".C3");
 
 let keyPressed = "";
 let displayValue = "";
@@ -12,6 +15,7 @@ let value = "";
 let operator = "";
 let solucion = [];
 const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
+
 
 for (let i = 0; i < keys.length; i++) {
 
@@ -98,9 +102,7 @@ for (let i = 0; i < keys.length; i++) {
                 break
             } 
             console.log(solucion) 
-          }
-    
-    
+          }    
   });
 
   keys[i].addEventListener("transitionend", () => {
@@ -143,26 +145,35 @@ function calculator(operator, num1, num2) {
   return all;
 }
 
-checkbox.forEach((element)=>{
-    element.addEventListener("click", (e)=>{
-      press = e.target.value;
-      
-      if(press === '1' && body.style.background !== 'var(--tercer-color)'){
-        body.style.background = 'var(--tercer-color)'
-      } else {
-        body.style.background !== 'var(--tercer-color)'
-      }
+let state1 = [];
+let state2 = [];
+let state3 = [];
 
-      if(press === '2' && body.style.background !== 'var(--four-color)'){
-        body.style.background = 'var(--four-color)'  
-      } else {
-        body.style.background !== 'var(--four-color)'
-      }
+checkBox.forEach((element)=>{
+  element.addEventListener("click", (e)=>{
+    press = e.target.checked;
+    // console.log(e.target.classList.contains('C1'));
+    // console.log(press)
 
-      if(press === '3' && body.style.background !== 'var(--five-color)') {
-        body.style.background = 'var(--five-color)'
-      } else {
-        body.style.background !== 'var(--five-color)'
-      }
+    if(press && e.target.classList.contains('C1') && body.style.background !== 'var(--tercer-color)'){
+      body.style.background = 'var(--tercer-color)';
+      body.style.backgroundSize = 'cover'
+    } else {
+      body.style.background == 'var(--primary-color)'
+    }
+
+    if(press && e.target.classList.contains('C2') && body.style.background !== 'var(--four-color)'){
+      body.style.background = 'var(--four-color)'
+      body.style.backgroundSize = 'cover'  
+    } else {
+      body.style.background == 'var(--primary-color)'
+    }
+
+    if(press && e.target.classList.contains('C3') && body.style.background !== 'var(--five-color)') {
+      body.style.background = 'var(--primary-color)'
+      body.style.backgroundSize = 'cover'
+    } else {
+      body.style.background == 'var(--primary-color)'
+    }
   })
 });
